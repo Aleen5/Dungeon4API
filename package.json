@@ -1,0 +1,15 @@
+{
+  "name": "dungeon4api",
+  "version": "1.0.0",
+  "description": "Dungeon4Dummies API Rest",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alejandro Rodríguez Espinosa",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3",
+    "mongodb": "^4.5.0"
+  }
+}
