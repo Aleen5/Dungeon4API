@@ -3,28 +3,11 @@ const url = "mongodb+srv://Dungeon:rod160898@cluster0.pr3ad.mongodb.net/myFirstD
 
 exports.get = (req, res) => {
     MongoClient.connect(url, (err, db) => {
-        var code = req.params.username;
+        var code = req.params.id;
         if (err) throw err;
         var dbo = db.db('Dungeon4Dummies');
 
-        dbo.collection('users').findOne({username:code}, (err, result) => {
-            if (err) throw err;
-            console.log(result)
-            db.close();
-            return res.json(result);
-        })    
-    })
-}
-
-// LOGIN DE PRUEBA
-exports.log = (req, res) => {
-    MongoClient.connect(url, (err, db) => {
-        var code = req.params.username;
-        var pwd = req.params.password;
-        if (err) throw err;
-        var dbo = db.db('Dungeon4Dummies');
-
-        dbo.collection('users').findOne({username:code, password: pwd}, (err, result) => {
+        dbo.collection('campaigns').findOne({id:code}, (err, result) => {
             if (err) throw err;
             console.log(result)
             db.close();
@@ -38,7 +21,7 @@ exports.list = (req, res) => {
         if (err) throw err;
         var dbo = db.db("Dungeon4Dummies");
 
-        result = dbo.collection('users').find({}).toArray((err, result) => {
+        result = dbo.collection('campaigns').find({}).toArray((err, result) => {
             if (err) throw err;
             console.log(result)
             db.close();
@@ -51,18 +34,22 @@ exports.add = (req, res) => {
     MongoClient.connect(url, (err, db) => {
         if (err) throw err;
         var dbo = db.db("Dungeon4Dummies");
-
+        var ids = Math.floor(100000 + Math.random() * 900000);
         var json = JSON.parse(JSON.stringify(req.body));
         var newData = {
-            _id: Math.floor(100000 + Math.random() * 900000),
-            username: json.username,
-            password: json.password,
-            email: json.email,
+            _id: ids,
+            id: ids,
             name: json.name,
-            surname: json.surname
+            dm: json.dm,
+            avatar: json.avatar,
+            setting: json.setting,
+            description: json.description,
+            players: json.players,
+            characters: json.characters,
+            journal: json.journal,
         }
 
-        dbo.collection("users").insertOne(newData), (err, result) => {
+        dbo.collection("campaigns").insertOne(newData), (err, result) => {
             if (err)    console.log(err);
             else{
                 console.log(result);
@@ -77,16 +64,20 @@ exports.update = (req, res) => {
     var json = JSON.parse(JSON.stringify(req.body));
     console.log(json)
     var nuevosDatos = {
-        username: json.username,
-        password: json.password,
-        email: json.email,
+        id: json.id,
         name: json.name,
-        surname: json.surname
+        dm: json.dm,
+        avatar: json.avatar,
+        setting: json.setting,
+        description: json.description,
+        players: json.players,
+        characters: json.characters,
+        journal: json.journal,
     }
     MongoClient.connect(url, (err, db) => {
         if (err) throw err;
         var dbo = db.db("Dungeon4Dummies");
-        dbo.collection("users").updateOne({username:json.username}, {$set:nuevosDatos}, (err, result) => {
+        dbo.collection("campaigns").updateOne({id:json.id}, {$set:nuevosDatos}, (err, result) => {
             if (err) throw err;
             console.log(result);
             db.close();
@@ -96,12 +87,12 @@ exports.update = (req, res) => {
 }
 
 exports.delete = (req, res) => {
-    var code = req.params.username;
+    var code = req.params.id;
 
     MongoClient.connect(url, (err, db) => {
         if (err) throw err;
         var dbo = db.db("Dungeon4Dummies");
-        dbo.collection("users").deleteOne({username:code}, (err, result) => {
+        dbo.collection("campaigns").deleteOne({id:code}, (err, result) => {
             if (err) throw err;
             console.log(result);
             db.close();

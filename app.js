@@ -1,10 +1,16 @@
 const express = require('express');
 var users = require('./routes/users');
+var characters = require('./routes/characters');
+var items = require('./routes/items');
+var campaigns = require('./routes/campaigns');
 var http = require('http');
 
 const app = express();
 
 app.use('/', users);
+app.use('/', characters);
+app.use('/', items);
+app.use('/', campaigns);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
