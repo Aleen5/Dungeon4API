@@ -26,9 +26,15 @@ exports.log = (req, res) => {
 
         dbo.collection('users').findOne({username:code, password: pwd}, (err, result) => {
             if (err) throw err;
-            console.log(result)
-            db.close();
-            return res.json(result);
+
+            if (result != null) {
+                console.log(result)
+                return res.json(result)
+                
+            } else {
+                console.log(result)
+                return res.status(500).json(result)
+            }
         })    
     })
 }
