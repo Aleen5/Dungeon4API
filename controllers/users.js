@@ -60,12 +60,13 @@ exports.add = (req, res) => {
 
         var json = JSON.parse(JSON.stringify(req.body));
         var newData = {
-            _id: Math.floor(100000 + Math.random() * 900000),
+            _id: "u" + Math.floor(100000 + Math.random() * 900000),
             username: json.username,
             password: json.password,
             email: json.email,
             name: json.name,
-            surname: json.surname
+            surname: json.surname,
+            characters: json.characters
         }
 
         dbo.collection("users").insertOne(newData), (err, result) => {
@@ -87,7 +88,8 @@ exports.update = (req, res) => {
         password: json.password,
         email: json.email,
         name: json.name,
-        surname: json.surname
+        surname: json.surname,
+        characters: json.characters
     }
     MongoClient.connect(url, (err, db) => {
         if (err) throw err;

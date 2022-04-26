@@ -36,7 +36,7 @@ exports.add = (req, res) => {
         var dbo = db.db("Dungeon4Dummies");
 
         var json = JSON.parse(JSON.stringify(req.body));
-        var ids = Math.floor(100000 + Math.random() * 900000);
+        var ids = "c" + Math.floor(100000 + Math.random() * 900000);
         var newData = {
             _id: ids,
             id: ids,
