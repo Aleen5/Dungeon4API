@@ -85,6 +85,7 @@ exports.add = (req, res) => {
             age: json.age,
             avatar: json.avatar,
             languages: json.languages,
+            owner: json.owner
         }
 
         dbo.collection("characters").insertOne(newData), (err, result) => {
@@ -133,6 +134,7 @@ exports.update = (req, res) => {
             age: json.age,
             avatar: json.avatar,
             languages: json.languages,
+            owner: json.owner
     }
     MongoClient.connect(url, (err, db) => {
         if (err) throw err;
