@@ -1,5 +1,6 @@
+require('dotenv').config()
 var MongoClient = require('mongodb').MongoClient
-const url = "mongodb+srv://Dungeon:rod160898@cluster0.pr3ad.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+const url = process.env.MONGO_URL
 
 exports.get = (req, res) => {
     MongoClient.connect(url, (err, db) => {
