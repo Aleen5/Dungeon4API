@@ -30,6 +30,21 @@ exports.list = (req, res) => {
     })
 }
 
+exports.clist = (req, res) => {
+    MongoClient.connect(url, (err, db) => {
+        var code = req.params.owner;
+        if (err) throw err;
+        var dbo = db.db("Dungeon4Dummies");
+
+        result = dbo.collection('characters').find({owner:code}).toArray((err, result) => {
+            if (err) throw err;
+            console.log(result);
+            db.close();
+            return res.json(result);
+        })
+    })
+}
+
 exports.add = (req, res) => {
     MongoClient.connect(url, (err, db) => {
         if (err) throw err;

@@ -5,6 +5,7 @@ var characters = require("../controllers/characters");
 const bodyParser = require('body-parser').json()
 
 router.get("/characters", characters.list);
+router.get("/characters/user/:owner", characters.clist);
 router.get("/characters/:id", characters.get);
 router.post("/characters", bodyParser, characters.add);
 router.put("/characters/:id", bodyParser, characters.update);
