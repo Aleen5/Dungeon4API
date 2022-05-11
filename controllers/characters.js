@@ -311,7 +311,7 @@ exports.update = (req, res) => {
             character_class: json.character_class,
             archetype: json.archetype,
             stats: json.stats,
-            max_hp: json.hp,
+            max_hp: json.max_hp,
             current_hp: json.current_hp,
             temporal_hp: json.temporal_hp,
             max_mana: json.max_mana,
