@@ -57,7 +57,7 @@ const names = ["Geralt", "Dominique", "Allen", "Vailor", "Talahasee", "Kakarot",
     "Thomas", "Sieg", "Bartholomew", "Geronimo", "Medea", "Kojirou", "Bryan", "Boris", "Eufrasio", "Evaristo", "Facundo", "Federico",
     "Manuel", "Daniel", "Helena", "Samuel", "Pablo", "Leena", "Aisha", "Brent", "Neil", "Doug", "Ronan", "Allister", "Ryan", "Adolf",
     "Sirius", "Harry", "Ben", "Gwen", "Bruce", "Rhonin", "Gaspard", "Rico", "Vlad", "Yor", "Loid", "Anya", "Winston", "Triss", "Henselt",
-    "Desmond", "Nikolai", "Keira", "Hjalmar", "Crach", ""];
+    "Desmond", "Nikolai", "Keira", "Hjalmar", "Crach", "Daenerys", "Jaime", ];
 
 
 const surnames = ["of Rivia", "de Sade", "Walker", "Sithis", "Benitez", "Rodriguez", "Valdepeñas", "le Fay", "Boldvir", "Hellscream",
@@ -104,6 +104,7 @@ function getRandomStats() {
     stats = new StatsModel()
     stats.AnimalHandling = randomNumberStat()
     stats.Acrobatics = randomNumberStat()
+    stats.Athletics = randomNumberStat()
     stats.ArmorClass = randomNumberStat()
     stats.Charisma = randomNumberStat()
     stats.Constitution = randomNumberStat()
@@ -113,6 +114,7 @@ function getRandomStats() {
     stats.Initiative = randomNumberStat()
     stats.Insight = randomNumberStat()
     stats.Intelligence = randomNumberStat()
+    stats.Intimidation = randomNumberStat()
     stats.Medicine = randomNumberStat()
     stats.Nature = randomNumberStat()
     stats.Perception = randomNumberStat()
