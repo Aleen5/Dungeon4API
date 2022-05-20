@@ -57,7 +57,8 @@ const names = ["Geralt", "Dominique", "Allen", "Vailor", "Talahasee", "Kakarot",
     "Thomas", "Sieg", "Bartholomew", "Geronimo", "Medea", "Kojirou", "Bryan", "Boris", "Eufrasio", "Evaristo", "Facundo", "Federico",
     "Manuel", "Daniel", "Helena", "Samuel", "Pablo", "Leena", "Aisha", "Brent", "Neil", "Doug", "Ronan", "Allister", "Ryan", "Adolf",
     "Sirius", "Harry", "Ben", "Gwen", "Bruce", "Rhonin", "Gaspard", "Rico", "Vlad", "Yor", "Loid", "Anya", "Winston", "Triss", "Henselt",
-    "Desmond", "Nikolai", "Keira", "Hjalmar", "Crach", "Daenerys", "Jaime", ];
+    "Desmond", "Nikolai", "Keira", "Hjalmar", "Crach", "Daenerys", "Jaime", "Yeray", "Selio", "Aleister", "Gustavo", "Brienne", "Shay",
+    "Patrick", "Thorfinn", "Thorkell", "Leeroy", "Kazuya", "Jin", "Lars", "Steve"];
 
 
 const surnames = ["of Rivia", "de Sade", "Walker", "Sithis", "Benitez", "Rodriguez", "Valdepeñas", "le Fay", "Boldvir", "Hellscream",
@@ -74,16 +75,18 @@ const surnames = ["of Rivia", "de Sade", "Walker", "Sithis", "Benitez", "Rodrigu
     "Ren", "Greaves", "Borgia", "Cuevas", "Mangas", "Ferrol", "le Gris", "Cucumberbatch", "Clamañublo", "Drake", "of the Blackwater",
     "Alderson", "di Ravello", "Vivaldi", "Paratus", "Kota", "Fujimaru", "Portgas", "Keller", "Nightingale", "Senato", "Aldini", "Asahi",
     "Khan", "Bonaparte", "de la Mancha", "von Einzbern", "Matou", "mac Cumhail", "Frankenstein", "Salieri", "Kamangir", "Bunyan", "de Rais",
-    "Tell", "Hood", "Clarke", "of the Sunless Kingdoms", "Wright", "von Hohenheim", "Fuuma", "Jekyll", "Cavill", "Sanson", "Corday", "Edison",
+    "Tell", "Hood", "Clarke", "of the Sunless Realms", "Wright", "von Hohenheim", "Fuuma", "Jekyll", "Cavill", "Sanson", "Corday", "Edison",
     "Tesla", "Babbage", "Wazowski", "Sunforged", "of Dibella", "Roberts", "Sasaki", "Johnson", "Putin", "Da Vinci", "Henares", "Long", "Lloyd",
     "Shallduin", "Kamimura", "Marcaida", "Crowley", "Bond", "Craig", "Mengele", "Black", "Potter", "Tennison", "Parker", "Wayne", "Warren",
     "Penaumbra", "Solarian", "Atracasol", "Forger", "Churchill", "McCree", "Merigold", "Hemmelfart", "Nerevar", "Barenziah", "Battleborn",
-    "Graymane", "Miles", "Orelov", "Metz", "an Craite", ""];
+    "Graymane", "Miles", "Orelov", "Metz", "an Craite", "Organna", "Seaworth", "Braun", "Zakhaev", "Shepherd", "White", "Leto", "Sandman",
+    "Dempsey", "Belinski", "Masaki", "Tohsaka", "la Valette", "Cumgrail", "Reed", "El Melloi", "Cormac", "Soji", "Jenkins", "Mishima", "Kazama",
+    "Hortensia"];
 
 const aliases = ["Puñetazo", "The Rock", "The Butcher", "Nameless", "Evil Wind", "The Lion", "The Wolf", "The Saint", "Smash", "Big Hoss",
     "Hackerman", "Domino", "Goblin Slayer", "The One in Gray", "The One in Black", "The Ruined King", "Strong-Arm", "Bigfoot", "Death",
-    "Fireball Man", "Goat F****r", "Furryman", "Orc's Bane", "The Assassin", "Golden", "Black Bolt", "Spidey", "Captain", "God of War", 
-    "The Unborn", "Rocket Man", "Short", "El Bicho", "Gaylord", "The Machine", "Grand Guildmaster", "Archer of Inferno", "Wiener", "Dracula",
+    "Fireball Man", "Goat F***er", "Furryman", "Orc's Bane", "The Assassin", "Golden", "Black Bolt", "Spidey", "Captain", "God of War", 
+    "The Unborn", "Rocket Man", "Short", "El Bicho", "Gaylord", "The Machine", "Grand Guildmaster", "Archer of Inferno", "Wiener", "The Dracula",
     "Twilight", "The Half-Breed", "The Lesser", "The Greater", "The Big", "The Short", "Doomfist", "Reaper", "The Stray", "The Gray",
     "The White", "The Black", "Faceless", "Midget", "Fat-man", "Silentman", "Agent 006", "La Pulga"];
 
@@ -96,6 +99,23 @@ const classes = ["Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Pal
 
 const alignments = ["Lawful-Good", "Lawful-Neutral", "Lawful-Evil", "Neutral-Good", "True-Neutral", "Neutral-Evil", "Chaotic-Good", "Chaotic-Neutral", 
     "Chaotic-Evil"];
+
+const generalWeapons = ["Dagger: 1d6 + 3 Slicing or Piercing damage", "Short sword: 1d8 Slicing or Piercing damage", "Crossbow: 1d8 + 4 Piercing damage", 
+    "Shortbow: 1d8 Piercing damage", "Bomb: 2d12 + 4 Splash damage. Radius: 15ft. If Artificer: 3d12 Splash damage instead."];
+
+const generalItems = ["Lesser health potion: Recover 1d8 + Medicine modifier", "Mid health potion: Recover 1d12 + Medicine modifier",
+    "Greater health potion: Recover 2d12 + Medicine modifier", "Lesser mana potion: Recover 1d8 + 4", "Mid mana potion: Recover 1d12 + 4",
+    "Greater mana potion: Recover 2d12 + 4", "Wolf pelt", "Boar skin", "Rat skin", "Strange stones", "Rare Candy: Level up instantly. Only one use",
+    "Bush disguise", "Horse meat", "Dice: [6]", "Tinderbox", "Fishing Rod"];
+    
+const legendaryItems = ["Deck of Many Things", 
+    "Excalibur: The legendary sword in the rock. Destroys opponents with unprecedented power. Damage: 2d12 Slicing or Piercing. Special: By shouting the name of the sword and swinging it onwards, deal 2d20 Light damage in a cone in front of the user. Range: 200ft long, 50ft wide. Cooldown: 6T",
+    "Failnaught",
+    "Sword of Rupture: The omnipotent Sword of Creation. Damage: 1d12 Piercing. Special: By shouting 'Enuma Elish' and thrusting this lance-like sword onwards, unleash a beam of destruction in front of the user. Affected creatures must endure a Death Saving throw of 30 difficulty. If they fail, they are erased from existance no matter how many trys they have left. Range: 1000ft long, 60ft wide. Cooldown: Only once per lifetime",
+    "Qin Sais: Dual blades of destruction. Damage: 2d10 + 10 Slicing or Piercing. Special: If using them, add +20 to your hit die."];
+
+const mageItems = ["Fire Wand: 1d6+4 Fire damage", "Magic Wand: 1d6+3 Magic damage", "Crystal Cone: A completely worthless crystal cone",
+    "Enchanted Spellbook: Recover 40 MP. Only once per day", "Magic Staff: 1d8 + 3 Magic damage", "Fire Staff: 1d8 + 4 Fire damage"];
 
 function getRandomStats() {
     function randomNumberStat() {
@@ -137,7 +157,6 @@ exports.get = (req, res) => {
 
         dbo.collection('characters').findOne({id:code}, (err, result) => {
             if (err) throw err;
-            console.log(result)
             db.close();
             return res.json(result);
         })    
@@ -151,7 +170,8 @@ exports.randomCharacter = (req, res) => {
         if (err) throw err;
         const dbo = db.db('Dungeon4Dummies');
         const ids = "c" + Math.floor(100000 + Math.random() * 900000);
-        let hasAlias = false
+        let hasAlias = Math.round(Math.random()) == 1;
+        let list = [""];
 
         if (Math.round(Math.random()) == 0)
             console.log("It will not have an Alias.")
@@ -160,23 +180,43 @@ exports.randomCharacter = (req, res) => {
             hasAlias = true
         }
         let cName = names[Math.floor(Math.random() * names.length)]
+        let cSurname = surnames[Math.floor(Math.random() * surnames.length)]
+        let characterClass = classes[Math.floor(Math.random() * classes.length)]
         let hp = Math.floor(Math.random() * 80);
         let mana = Math.floor(Math.random() * 80)
-        let list = [""]
+
+        // Inventory buildup
+
+        let inventoryList = [""]
+        let hasLegendaryItem = (Math.floor(Math.random() * 100)) <= 3
+        if (hasLegendaryItem) console.log(`${cName} ${cSurname} has a LEGENDARY item!!!`)
+
+        switch(characterClass) {
+            case "Wizard": inventoryList.push(mageItems[(Math.floor(Math.random() * mageItems.length))])
+            break;
+        }
+
+
+        inventoryList.push(generalWeapons[Math.floor(Math.random() * generalWeapons.length)])
+        hasLegendaryItem ? inventoryList.push(legendaryItems[Math.floor(Math.random() * legendaryItems.length)]) : inventoryList.push(generalItems[Math.floor(Math.random() * generalItems.length)])
+        inventoryList.push(generalItems[Math.floor(Math.random() * generalItems.length)])
+        
+
+        inventoryList.splice(0, 1);
 
         const newData = {
             _id: ids,
             id: ids,
             name: cName,
-            surname: surnames[Math.floor(Math.random() * surnames.length)],
+            surname: cSurname,
             alias: hasAlias ? aliases[Math.floor(Math.random() * aliases.length)] : cName,
             status: "Alive",
             race: races[Math.floor(Math.random() * races.length)],
             campaigns: "",
             alignment: alignments[Math.floor(Math.random() * alignments.length)],
-            level: Math.floor(Math.random() * 20),
+            level: Math.floor(Math.random() * 20) + 1,
             exp: Math.floor(Math.random() * 6000),
-            character_class: classes[Math.floor(Math.random() * classes.length)],
+            character_class: characterClass,
             archetype: "",
             stats: getRandomStats(),
             max_hp: hp,
@@ -188,14 +228,14 @@ exports.randomCharacter = (req, res) => {
             attacks_sorceries: list,
             features_traits: list,
             death_saves: 3,
-            inventory: list,
+            inventory: inventoryList,
             backstory: "",
             ideals: "",
             proficiencies: "",
             flaws: "",
             personality_traits: "",
             bonds: "",
-            age: Math.floor(Math.random() * 80),
+            age: Math.floor((Math.random()) * 80) + 15,
             avatar: "",
             languages: "Common",
             owner: code
@@ -204,7 +244,6 @@ exports.randomCharacter = (req, res) => {
         dbo.collection("characters").insertOne(newData), (err, result) => {
             if (err)    console.log(err);
             else{
-                console.log(result);
                 db.close();
             }
         };
@@ -219,7 +258,6 @@ exports.list = (req, res) => {
 
         result = dbo.collection('characters').find({}).toArray((err, result) => {
             if (err) throw err;
-            console.log(result)
             db.close();
             return res.json(result)
         }) 
@@ -299,12 +337,19 @@ exports.add = (req, res) => {
 exports.update = (req, res) => {
     var json = JSON.parse(JSON.stringify(req.body));
     console.log(json)
+
+    let status;
+    if (json.current_hp < 1 && json.death_saves < 1)
+        status = "Dead"
+    else if (json.current_hp < 1 && json.death_saves >= 1)
+        status = "Unconscious"
+
     var nuevosDatos = {
             id: json.id,
             name: json.name,
             surname: json.surname,
             alias: json.alias,
-            status: json.status,
+            status: status,
             race: json.race,
             campaigns: json.campaigns,
             alignment: json.alignment,
