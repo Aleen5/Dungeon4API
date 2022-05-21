@@ -81,7 +81,7 @@ const surnames = ["of Rivia", "de Sade", "Walker", "Sithis", "Benitez", "Rodrigu
     "Penaumbra", "Solarian", "Atracasol", "Forger", "Churchill", "McCree", "Merigold", "Hemmelfart", "Nerevar", "Barenziah", "Battleborn",
     "Graymane", "Miles", "Orelov", "Metz", "an Craite", "Organna", "Seaworth", "Braun", "Zakhaev", "Shepherd", "White", "Leto", "Sandman",
     "Dempsey", "Belinski", "Masaki", "Tohsaka", "la Valette", "Cumgrail", "Reed", "El Melloi", "Cormac", "Soji", "Jenkins", "Mishima", "Kazama",
-    "Hortensia"];
+    "Hortensia", "Van der Linde"];
 
 const aliases = ["Puñetazo", "The Rock", "The Butcher", "Nameless", "Evil Wind", "The Lion", "The Wolf", "The Saint", "Smash", "Big Hoss",
     "Hackerman", "Domino", "Goblin Slayer", "The One in Gray", "The One in Black", "The Ruined King", "Strong-Arm", "Bigfoot", "Death",
