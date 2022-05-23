@@ -58,7 +58,7 @@ const names = ["Geralt", "Dominique", "Allen", "Vailor", "Talahasee", "Kakarot",
     "Manuel", "Daniel", "Helena", "Samuel", "Pablo", "Leena", "Aisha", "Brent", "Neil", "Doug", "Ronan", "Allister", "Ryan", "Adolf",
     "Sirius", "Harry", "Ben", "Gwen", "Bruce", "Rhonin", "Gaspard", "Rico", "Vlad", "Yor", "Loid", "Anya", "Winston", "Triss", "Henselt",
     "Desmond", "Nikolai", "Keira", "Hjalmar", "Crach", "Daenerys", "Jaime", "Yeray", "Selio", "Aleister", "Gustavo", "Brienne", "Shay",
-    "Patrick", "Thorfinn", "Thorkell", "Leeroy", "Kazuya", "Jin", "Lars", "Steve"];
+    "Patrick", "Thorfinn", "Thorkell", "Leeroy", "Kazuya", "Jin", "Lars", "Steve", "Kerrigan", "Salazar", "Saw", "Brutus", ""];
 
 
 const surnames = ["of Rivia", "de Sade", "Walker", "Sithis", "Benitez", "Rodriguez", "Valdepeñas", "le Fay", "Boldvir", "Hellscream",
@@ -81,7 +81,9 @@ const surnames = ["of Rivia", "de Sade", "Walker", "Sithis", "Benitez", "Rodrigu
     "Penaumbra", "Solarian", "Atracasol", "Forger", "Churchill", "McCree", "Merigold", "Hemmelfart", "Nerevar", "Barenziah", "Battleborn",
     "Graymane", "Miles", "Orelov", "Metz", "an Craite", "Organna", "Seaworth", "Braun", "Zakhaev", "Shepherd", "White", "Leto", "Sandman",
     "Dempsey", "Belinski", "Masaki", "Tohsaka", "la Valette", "Cumgrail", "Reed", "El Melloi", "Cormac", "Soji", "Jenkins", "Mishima", "Kazama",
-    "Hortensia", "Van der Linde"];
+    "Hortensia", "Van der Linde", "Elric", "Winters", "Babes", "var Emreis", "de Borbón", "Ronamir", "de la Fuente", "Blackstone", "Díaz",
+    "Steelwood", "Van Dam", "Phoenix", "Menéndez", "Mason", "Sanders", "Kennedy", "Trump", "Redfield", "Valentine", "Kenneth", "Gerrera",
+    "Hammond", "Frey", "Ford", "Holmes", "Garrido"];
 
 const aliases = ["Puñetazo", "The Rock", "The Butcher", "Nameless", "Evil Wind", "The Lion", "The Wolf", "The Saint", "Smash", "Big Hoss",
     "Hackerman", "Domino", "Goblin Slayer", "The One in Gray", "The One in Black", "The Ruined King", "Strong-Arm", "Bigfoot", "Death",
@@ -188,7 +190,7 @@ exports.randomCharacter = (req, res) => {
         // Inventory buildup
 
         let inventoryList = [""]
-        let hasLegendaryItem = (Math.floor(Math.random() * 100)) <= 3
+        let hasLegendaryItem = (Math.round(Math.random() * 100)) <= 3
         if (hasLegendaryItem) console.log(`${cName} ${cSurname} has a LEGENDARY item!!!`)
 
         switch(characterClass) {
@@ -349,7 +351,7 @@ exports.update = (req, res) => {
             name: json.name,
             surname: json.surname,
             alias: json.alias,
-            status: status,
+            status: json.status,
             race: json.race,
             campaigns: json.campaigns,
             alignment: json.alignment,
