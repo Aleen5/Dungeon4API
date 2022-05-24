@@ -3,6 +3,25 @@ const bcrypt = require('bcrypt')
 var MongoClient = require('mongodb').MongoClient
 const url = process.env.MONGO_URL
 
+
+exports.get = (req, res) => {
+    MongoClient.connect(url, (err, db) => {
+        var code = req.params.username;
+        if (err) throw err;
+        var dbo = db.db('Dungeon4Dummies');
+
+        dbo.collection('users').findOne({username:code}, (err, result) => {
+            if (err) throw err;
+            console.log(result);
+            db.close();
+            if (result != null) {
+                res.status(200).json(result)
+            } else 
+                res.status(500).send()
+        })
+    })
+}
+
 // LOGIN DE PRUEBA
 exports.login = async (req, res) => {
     MongoClient.connect(url, async (err, db) => {
@@ -16,11 +35,14 @@ exports.login = async (req, res) => {
 
                 try {
                     if(await bcrypt.compare(req.body.password, result.password)) {
+                        console.log(result)
                         res.status(201).json(result)
                     } else {
+                        console.log("FAIL")
                         res.status(500).send()
                     }
                 } catch {
+                    console.log("FAIL")
                     res.status(500).send()
                 }
             }
@@ -49,7 +71,7 @@ exports.add = async (req, res) => {
         try {
             const hashedPassword = await bcrypt.hash(req.body.password, 10)
             const user = {
-                _id: "u" + Math.floor(100000 + Math.random() * 900000),
+                _id: req.body.username,
                 username: req.body.username,
                 password: hashedPassword,
                 email: req.body.email,
@@ -64,7 +86,7 @@ exports.add = async (req, res) => {
                     console.log(err);
                 }
             }
-            res.status(200).send()
+            res.status(200).json(result)
 
         } catch {
             res.status(500).send()

@@ -5,7 +5,7 @@ var users = require("../controllers/users")
 
 
 //router.get("/users", users.list);
-//router.get("/users/:username", users.get);
+router.get("/users/:username", users.get);
 //router.get("/users/:username/:password", users.log); // LOGIN
 router.post("/users/login", bodyParser, users.login);
 router.post("/users", bodyParser, users.add);
