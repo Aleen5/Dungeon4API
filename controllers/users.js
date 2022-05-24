@@ -1,40 +1,28 @@
 require('dotenv').config()
+const bcrypt = require('bcrypt')
 var MongoClient = require('mongodb').MongoClient
 const url = process.env.MONGO_URL
 
-exports.get = (req, res) => {
-    MongoClient.connect(url, (err, db) => {
-        var code = req.params.username;
-        if (err) throw err;
-        var dbo = db.db('Dungeon4Dummies');
-
-        dbo.collection('users').findOne({username:code}, (err, result) => {
-            if (err) throw err;
-            console.log(result)
-            db.close();
-            return res.json(result);
-        })    
-    })
-}
-
 // LOGIN DE PRUEBA
-exports.log = (req, res) => {
-    MongoClient.connect(url, (err, db) => {
-        var code = req.params.username;
-        var pwd = req.params.password;
+exports.login = async (req, res) => {
+    MongoClient.connect(url, async (err, db) => {
         if (err) throw err;
         var dbo = db.db('Dungeon4Dummies');
 
-        dbo.collection('users').findOne({username:code, password: pwd}, (err, result) => {
+        dbo.collection('users').findOne({username: req.body.username}, async (err, result) => {
             if (err) throw err;
 
             if (result != null) {
-                console.log(result)
-                return res.json(result)
-                
-            } else {
-                console.log(result)
-                return res.status(500).json(result)
+
+                try {
+                    if(await bcrypt.compare(req.body.password, result.password)) {
+                        res.status(201).json(result)
+                    } else {
+                        res.status(500).send()
+                    }
+                } catch {
+                    res.status(500).send()
+                }
             }
         })    
     })
@@ -54,31 +42,36 @@ exports.list = (req, res) => {
     })
 }
 
-exports.add = (req, res) => {
-    MongoClient.connect(url, (err, db) => {
+exports.add = async (req, res) => {
+    MongoClient.connect(url, async (err, db) => {
         if (err) throw err;
         var dbo = db.db("Dungeon4Dummies");
+        try {
+            const hashedPassword = await bcrypt.hash(req.body.password, 10)
+            const user = {
+                _id: "u" + Math.floor(100000 + Math.random() * 900000),
+                username: req.body.username,
+                password: hashedPassword,
+                email: req.body.email,
+                name: req.body.name,
+                surname: req.body.surname,
+                characters: req.body.characters
+            }
 
-        var json = JSON.parse(JSON.stringify(req.body));
-        var newData = {
-            _id: "u" + Math.floor(100000 + Math.random() * 900000),
-            username: json.username,
-            password: json.password,
-            email: json.email,
-            name: json.name,
-            surname: json.surname,
-            characters: json.characters
+            dbo.collection("users").insertOne(user), (err, result) => {
+                if (err) {
+                    res.status(500).send()
+                    console.log(err);
+                }
+            }
+            res.status(200).send()
+
+        } catch {
+            res.status(500).send()
         }
 
-        dbo.collection("users").insertOne(newData), (err, result) => {
-            if (err)    console.log(err);
-            else{
-                console.log(result);
-                db.close();
-            }
-        };
-    });
-    res.end();
+            
+    })
 }
 
 exports.update = (req, res) => {
