@@ -180,7 +180,7 @@ exports.getRandomCharacter = (owner) => {
     inventoryList.push(generalItems[Math.floor(Math.random() * generalItems.length)])
     inventoryList.splice(0, 1);
 
-    const randomCharacter = {
+    randomCharacter = {
         _id: ids,
         id: ids,
         name: cName,
