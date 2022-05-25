@@ -148,15 +148,9 @@ function getRandomStats() {
 exports.getRandomCharacter = (owner) => {
     
     const ids = "c" + Math.floor(100000 + Math.random() * 900000);
-    let hasAlias = Math.round(Math.random()) == 1;
+    const hasAlias = Math.round(Math.random()) == 1;
     let list = [""];
 
-    if (Math.round(Math.random()) == 0)
-        console.log("It will not have an Alias.")
-    else {
-        console.log("It will have an Alias.")
-        hasAlias = true
-    }
     const cName = names[Math.floor(Math.random() * names.length)]
     const cSurname = surnames[Math.floor(Math.random() * surnames.length)]
     const characterClass = classes[Math.floor(Math.random() * classes.length)]
