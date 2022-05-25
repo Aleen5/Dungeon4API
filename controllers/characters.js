@@ -58,7 +58,8 @@ const names = ["Geralt", "Dominique", "Allen", "Vailor", "Talahasee", "Kakarot",
     "Manuel", "Daniel", "Helena", "Samuel", "Pablo", "Leena", "Aisha", "Brent", "Neil", "Doug", "Ronan", "Allister", "Ryan", "Adolf",
     "Sirius", "Harry", "Ben", "Gwen", "Bruce", "Rhonin", "Gaspard", "Rico", "Vlad", "Yor", "Loid", "Anya", "Winston", "Triss", "Henselt",
     "Desmond", "Nikolai", "Keira", "Hjalmar", "Crach", "Daenerys", "Jaime", "Yeray", "Selio", "Aleister", "Gustavo", "Brienne", "Shay",
-    "Patrick", "Thorfinn", "Thorkell", "Leeroy", "Kazuya", "Jin", "Lars", "Steve", "Kerrigan", "Salazar", "Saw", "Brutus", ""];
+    "Patrick", "Thorfinn", "Thorkell", "Leeroy", "Kazuya", "Jin", "Lars", "Steve", "Kerrigan", "Salazar", "Saw", "Brutus", "Reiner",
+    "Billy", "Node", "Brandon", "Illyanna"];
 
 
 const surnames = ["of Rivia", "de Sade", "Walker", "Sithis", "Benitez", "Rodriguez", "Valdepeñas", "le Fay", "Boldvir", "Hellscream",
@@ -83,14 +84,14 @@ const surnames = ["of Rivia", "de Sade", "Walker", "Sithis", "Benitez", "Rodrigu
     "Dempsey", "Belinski", "Masaki", "Tohsaka", "la Valette", "Cumgrail", "Reed", "El Melloi", "Cormac", "Soji", "Jenkins", "Mishima", "Kazama",
     "Hortensia", "Van der Linde", "Elric", "Winters", "Babes", "var Emreis", "de Borbón", "Ronamir", "de la Fuente", "Blackstone", "Díaz",
     "Steelwood", "Van Dam", "Phoenix", "Menéndez", "Mason", "Sanders", "Kennedy", "Trump", "Redfield", "Valentine", "Kenneth", "Gerrera",
-    "Hammond", "Frey", "Ford", "Holmes", "Garrido"];
+    "Hammond", "Frey", "Ford", "Holmes", "Garrido", "von Karma", "Sepiro"];
 
 const aliases = ["Puñetazo", "The Rock", "The Butcher", "Nameless", "Evil Wind", "The Lion", "The Wolf", "The Saint", "Smash", "Big Hoss",
     "Hackerman", "Domino", "Goblin Slayer", "The One in Gray", "The One in Black", "The Ruined King", "Strong-Arm", "Bigfoot", "Death",
     "Fireball Man", "Goat F***er", "Furryman", "Orc's Bane", "The Assassin", "Golden", "Black Bolt", "Spidey", "Captain", "God of War", 
     "The Unborn", "Rocket Man", "Short", "El Bicho", "Gaylord", "The Machine", "Grand Guildmaster", "Archer of Inferno", "Wiener", "The Dracula",
     "Twilight", "The Half-Breed", "The Lesser", "The Greater", "The Big", "The Short", "Doomfist", "Reaper", "The Stray", "The Gray",
-    "The White", "The Black", "Faceless", "Midget", "Fat-man", "Silentman", "Agent 006", "La Pulga"];
+    "The White", "The Black", "Faceless", "Midget", "Fat-man", "Silentman", "Agent 006", "La Pulga", "The Kid"];
 
 const races = ["Dragonborn", "Dwarf", "Elf", "Gnome", "Half-Elf", "Halfling", "Half-Orc", "Human", "Tiefling", "Orc of Exandria", "Leonin", "Satyr", 
     "Fairy", "Harengon", "Owlin","Aarakocra", "Genasi", "Goliath", "Aasimar", "Bugbear", "Firbolg", "Goblin", "Hobgoblin", "Kenku", "Kobold", 
