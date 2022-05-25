@@ -148,7 +148,7 @@ function getRandomStats() {
 exports.getRandomCharacter = (owner) => {
     
     const ids = "c" + Math.floor(100000 + Math.random() * 900000);
-    const hasAlias = Math.round(Math.random()) == 1;
+    let hasAlias = Math.round(Math.random()) == 1;
     let list = [""];
 
     if (Math.round(Math.random()) == 0)
